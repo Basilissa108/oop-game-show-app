@@ -39,10 +39,10 @@
  const handleKeyPressEvent = function(e) {
     // use a regular expression to check if the pressed key is a valid character and store the result in a variable
     const isAllowedCharacter = (new RegExp("[a-z]", "gi")).test(e.key);
-    // check if isAllowedCharacter is true
-    if (isAllowedCharacter) {
-        // select the element with the class "key" which contains the value of the pressed key
-        const $button = $(`.key:contains(${e.key.toLowerCase()})`);
+    // select the element with the class "key" which contains the value of the pressed key
+    const $button = $(`.key:contains(${e.key.toLowerCase()})`);
+    // check if isAllowedCharacter is true and if the button is not disabled
+    if (isAllowedCharacter && !$button.prop("disabled")) {
         // call the handleInteraction method on the game passing in the button
         game.handleInteraction($button);
     }
